@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Card from '../card/Card'
+import { getAllProducts } from '@/app/api/api'
 
 const NewProducts = () => {
     const [ products, setProducts] = useState([])
@@ -10,8 +11,9 @@ const NewProducts = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://127.0.0.1:3000/api/v1/products?limit=5&page=1&sort=1');
-                setProducts(response.data.products.docs);
+                const response = await getAllProducts();
+                console.log(response)
+                setProducts(response);
             } catch (error) {
                 console.log('Error fetching products:', error);
             }

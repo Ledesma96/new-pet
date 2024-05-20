@@ -1,8 +1,9 @@
 'use client'
 import Card from '@/app/components/card/Card'
-import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Filters from './components/Filters';
+import Paginate from './components/Paginate';
+import { getBrands, getProdcutsCategory } from '@/app/api/api';
 
 const page = ({params}) => {
   const {category} = params
@@ -11,31 +12,37 @@ const page = ({params}) => {
   const [selectType, setSelectType] = useState([]);
   const [selectBrand, setSelectBrand] = useState([]);
   const [brand, setBrand] = useState([]);
-  
-  const uniqueBrands = new Set(products.map(product => product.brand));
+  const [page, setPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [nextPage, setNextPage] = useState();
+  const [prevPage, setPrevPage] = useState();
 
   useEffect(()=> {
     const fetchData = async() => {
-        const response = await axios.get(`http://127.0.0.1:3000/api/v1/products?limit=5&page=1&sort=1&brand=${selectBrand}&sub_category=${selectType}&category=${category}`);
+        const response = await getProdcutsCategory(page, selectBrand, selectType, category)
         if(response.data.success){
           setProducts(response.data.products.docs)
+          setNextPage(response.data.products.nextPage)
+          setPrevPage(response.data.products.prevPage)
+          setTotalPages(response.data.products.totalPages)
         }
     }
     fetchData()
-  }, [selectType, selectBrand])
+  }, [selectType, selectBrand, page])
 
   useEffect(() => {
-    if(brand.length == 0){
-      const uniqueBrands = new Set(products.map(product => product.brand));
-      setBrand(Array.from(uniqueBrands).map(brand => ({ name: brand })));
-
-      const uniqueSubCategory = new Set(products.map(product => product.sub_category));
-      setTypes(Array.from(uniqueSubCategory).map(sub_category => ({name: sub_category})))
-      console.log(uniqueSubCategory)
+    const fetchDataBrandsAndSubCategories = async() =>{
+      const response = await getBrands(category)
+      if(response.success){
+        setBrand(response.data.brands)
+        setTypes(response.data.sub_categories)
+      }
     }
-  },[products])
+    fetchDataBrandsAndSubCategories()
+  },[category])
+
   return (
-    <div>
+    <div className='container-products-category'>
       <Filters  setSelectType={setSelectType}
                 selectType={selectType}
                 setSelectBrand={setSelectBrand}
@@ -43,6 +50,11 @@ const page = ({params}) => {
                 types={types}
                 brand={brand} />
       <Card products={products} />
+      <Paginate page={page}
+                setPage={setPage}
+                totalPages={totalPages}
+                nextPage={nextPage}
+                prevPage={prevPage} />
     </div>
   )
 }

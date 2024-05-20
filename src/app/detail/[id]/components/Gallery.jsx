@@ -7,7 +7,9 @@ const Gallery = ({images}) => {
         thumbnail: 'http://127.0.0.1:3000' + image
     }))
   return (
-    <ImageGallery items={imagesGallery} />
+    <div className='gallery'>
+      <ImageGallery items={imagesGallery} />
+    </div>
   )
 }
 

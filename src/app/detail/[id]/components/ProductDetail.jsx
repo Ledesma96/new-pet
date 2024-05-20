@@ -2,10 +2,12 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Gallery from './Gallery'
+import Link from 'next/link'
 
 const ProductDetail = ({id}) => {
-    const [product, setProduct] = useState([])
-    const [images, setImages] = useState([])
+    const [product, setProduct] = useState([]);
+    const [images, setImages] = useState([]);
+    
 
     useEffect(() => {
         const response = axios.get(`http://127.0.0.1:3000/api/v1/products/filter/${id}`)
@@ -17,6 +19,10 @@ const ProductDetail = ({id}) => {
             console.log(error)
         })
     }, [])
+
+    useEffect(() => {
+        console.log(product);
+    })
 
     return (
     <div className='container-detail'>
@@ -42,7 +48,13 @@ const ProductDetail = ({id}) => {
                     <p className='container-detail_main_div_aside-today_p'>Llevalo hoy</p>
                 </aside>
             </div>
-            <h4>{product.description}</h4>
+            <div className='container-detail_main_div-description'>
+                <h5 className='container-detail_main_div-description_h5'>D<span>escription</span> : </h5>
+                <h4 className='container-detail_main_div-description_h4'>{product.description}</h4>
+            </div>
+            <div className='container-detail_main_div-btn'>
+                <Link className='btn' href=''>CONSULTAR</Link>
+            </div>
         </main>
     </div>
   )
