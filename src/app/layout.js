@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
         <NavBar/>
         {children}
         <Footer/>
-        <script src="https://cdn.jsdelivr.net/npm/react-bootstrap@2.10.2/dist/react-bootstrap.min.js"></script>
+        <script async src="https://cdn.jsdelivr.net/npm/react-bootstrap@2.10.2/dist/react-bootstrap.min.js"></script>
       </body>
     </html>
   );

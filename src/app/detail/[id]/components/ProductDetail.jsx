@@ -10,15 +10,20 @@ const ProductDetail = ({id}) => {
     
 
     useEffect(() => {
-        const response = getProductById(id)
-        .then((response) => {
-            setProduct(response.product)
-            setImages(response.product.images)
-        })
-        .catch((error) => {
-            console.log(error)
-        })
-    }, [])
+        const fetchData = async () => {
+            try {
+                const response = await getProductById(id);
+                setProduct(response.product);
+                setImages(response.product.images);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+    
+        fetchData();
+    }, [id])
+    
+    
 
     return (
     <div className='container-detail'>
