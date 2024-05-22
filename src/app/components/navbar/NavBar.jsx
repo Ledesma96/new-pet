@@ -4,7 +4,7 @@ import Mobile from './Mobile.jsx'
 import Desktop from './Desktop.jsx'
 
 const NavBar = () => {
-    const [windowWidth, setWindowWidth] = useState('window.innerWidth')
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
     useEffect(() => {
         const handleResize = () =>{
