@@ -20,7 +20,7 @@ const NavBar = () => {
     }, [windowWidth])
   return (
     <div>
-        {windowWidth < 768 ? <Mobile /> : <Desktop />}
+        {windowWidth <= 768 ? <Mobile /> : <Desktop />}
     </div>
   )
 }
