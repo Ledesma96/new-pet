@@ -17,7 +17,7 @@ const NavBar = () => {
             window.removeEventListener('resize', handleResize)
         }
         
-    }, [])
+    }, [windowWidth])
   return (
     <div>
         {windowWidth < 768 ? <Mobile /> : <Desktop />}
