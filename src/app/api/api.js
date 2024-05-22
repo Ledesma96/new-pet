@@ -26,7 +26,9 @@ export const getProductById = async(id) => {
 
 export const getProdcutsCategory = async(page, brand, type, category) => {
     try {
+        console.log(category);
         const response = await axios.get(api_url + `&page=${page}&sort=1&brand=${brand}&sub_category=${type}&category=${category}`)
+        console.log(response);
         return response.data
     } catch (error) {
         throw error
