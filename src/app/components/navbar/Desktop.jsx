@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Search from "./Search";
 
 const Desktop = () => {
 
@@ -28,7 +29,7 @@ const Desktop = () => {
           <Link href='/contact' >CONTACTO</Link>
         </div>
         <div className="container-navigation_div">
-          <Link href='/faqs' >FAQ'S</Link>
+          <Link href='/faqs' >FAQ&apos;S</Link>
         </div>
       </div>
     </nav>

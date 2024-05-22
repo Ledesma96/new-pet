@@ -1,8 +1,8 @@
 'use client'
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Gallery from './Gallery'
 import Link from 'next/link'
+import { getProductById } from '@/app/api/api'
 
 const ProductDetail = ({id}) => {
     const [product, setProduct] = useState([]);
@@ -10,19 +10,15 @@ const ProductDetail = ({id}) => {
     
 
     useEffect(() => {
-        const response = axios.get(`http://127.0.0.1:3000/api/v1/products/filter/${id}`)
+        const response = getProductById(id)
         .then((response) => {
-            setProduct(response.data.product)
-            setImages(response.data.product.images)
+            setProduct(response.product)
+            setImages(response.product.images)
         })
         .catch((error) => {
             console.log(error)
         })
     }, [])
-
-    useEffect(() => {
-        console.log(product);
-    })
 
     return (
     <div className='container-detail'>

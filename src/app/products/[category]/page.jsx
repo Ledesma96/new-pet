@@ -20,11 +20,11 @@ const page = ({params}) => {
   useEffect(()=> {
     const fetchData = async() => {
         const response = await getProdcutsCategory(page, selectBrand, selectType, category)
-        if(response.data.success){
-          setProducts(response.data.products.docs)
-          setNextPage(response.data.products.nextPage)
-          setPrevPage(response.data.products.prevPage)
-          setTotalPages(response.data.products.totalPages)
+        if(response.success){
+          setProducts(response.products.docs)
+          setNextPage(response.products.nextPage)
+          setPrevPage(response.products.prevPage)
+          setTotalPages(response.products.totalPages)
         }
     }
     fetchData()

@@ -1,6 +1,5 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import Card from '../card/Card'
 import { getAllProducts } from '@/app/api/api'
 
@@ -12,7 +11,6 @@ const NewProducts = () => {
         const fetchData = async () => {
             try {
                 const response = await getAllProducts();
-                console.log(response)
                 setProducts(response);
             } catch (error) {
                 console.log('Error fetching products:', error);
@@ -21,10 +19,6 @@ const NewProducts = () => {
     
         fetchData();
     }, []);
-
-    useEffect(() => {
-        console.log(products);
-    }, [products])
     
   return (
     <div className='container-newProducts'>
