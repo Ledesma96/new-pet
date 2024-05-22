@@ -5,7 +5,7 @@ const Desktop = () => {
 
   return (
     <nav className="navbar-desktop">
-      <img className="navbar-desktop_img" src="/184866534_262409168649318_644897417964500282_n.png"/>
+      <img className="navbar-desktop_img" src="/184866534_262409168649318_644897417964500282_n.png" alt="log"/>
       <div className="container-navigation">
         <div className="container-navigation_div">
           <Link href='/' >INICIO</Link>

@@ -74,23 +74,23 @@ const Mobile = () => {
         </div>
         <div className={`container-navbarMobile_div_categories ${openPets ? 'categories-on' : 'categories-off'}`}>
           <Link onClick={enterOption} className="container-navbarMobile_div_categories_link" href='/products/dogs'>
-            <img className="container-navbarMobile_div_categories_link_img" src="/icon-menu-perros.png"/>
+            <img className="container-navbarMobile_div_categories_link_img" src="/icon-menu-perros.png" alt="icono perro"/>
             <span className="container-navbarMobile_div_categories_link_span">PERROS</span>
           </Link>
           <Link onClick={enterOption} className="container-navbarMobile_div_categories_link" href='/products/cats'>
-            <img className="container-navbarMobile_div_categories_link_img" src="/icon-menu-gatos.png"/>
+            <img className="container-navbarMobile_div_categories_link_img" src="/icon-menu-gatos.png" alt="icono gato"/>
             <span className="container-navbarMobile_div_categories_link_span">GATOS</span>
           </Link>
           <Link onClick={enterOption} className="container-navbarMobile_div_categories_link" href='/products/birds'>
-            <img className="container-navbarMobile_div_categories_link_img" src="/icon-menu-aves.png"/>
+            <img className="container-navbarMobile_div_categories_link_img" src="/icon-menu-aves.png" alt="icono aves"/>
             <span className="container-navbarMobile_div_categories_link_span">AVES</span>
           </Link>
           <Link onClick={enterOption} className="container-navbarMobile_div_categories_link" href='/products/fishes'>
-            <img className="container-navbarMobile_div_categories_link_img" src="/icon-menu-peces.png"/>
+            <img className="container-navbarMobile_div_categories_link_img" src="/icon-menu-peces.png" alt="icono peces"/>
             <span className="container-navbarMobile_div_categories_link_span">PECES</span>
           </Link>
           <Link onClick={enterOption} className="container-navbarMobile_div_categories_link" href='/products/others'>
-            <img className="container-navbarMobile_div_categories_link_img" src="/icon-menu-roedores.png"/>
+            <img className="container-navbarMobile_div_categories_link_img" src="/icon-menu-roedores.png" alt="icono otros"/>
             <span className="container-navbarMobile_div_categories_link_span">OTROS</span>
           </Link>
         </div>
@@ -107,7 +107,7 @@ const Mobile = () => {
           <span className="container-navbarMobile_div_span">FAQ&apos;S</span>
         </Link>
       </div>
-      <img className="container-navbarMobile_logo" src="/184866534_262409168649318_644897417964500282_n.png"/>
+      <img className="container-navbarMobile_logo" src="/184866534_262409168649318_644897417964500282_n.png" alt="icono local"/>
     </nav>
   );
 };
