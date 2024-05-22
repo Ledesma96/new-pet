@@ -11,7 +11,7 @@ const Filters = ({ setSelectType, selectType, setSelectBrand, selectBrand, types
     new Array(brand.length).fill(false)
   )
 
-  const [windowWidth, setWindowWidth] = useState('window.innerWidth')
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
 
     useEffect(() => {
         const handleResize = () =>{
