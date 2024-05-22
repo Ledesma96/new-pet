@@ -3,8 +3,8 @@ import ImageGallery from "react-image-gallery";
 
 const Gallery = ({images}) => {
     const imagesGallery = images.map( image => ({
-        original: 'http://127.0.0.1:3000' + image,
-        thumbnail: 'http://127.0.0.1:3000' + image
+        original: 'https://new-pet-nest.onrender.com' + image,
+        thumbnail: 'https://new-pet-nest.onrender.com' + image
     }))
   return (
     <div className='gallery'>
