@@ -1,28 +1,15 @@
 'use client'
-import React, { useEffect, useState } from 'react'
-import Mobile from './Mobile.jsx'
+import { useWindowSize } from '../helpers/index.js'
 import Desktop from './Desktop.jsx'
+import Mobile from './Mobile.jsx'
 
 const NavBar = () => {
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-
-    useEffect(() => {
-        const handleResize = () =>{
-            setWindowWidth(window.innerWidth)
-        } 
-
-        window.addEventListener('resize', handleResize)
-
-        return () => {
-            window.removeEventListener('resize', handleResize)
-        }
-        
-    }, [windowWidth])
-  return (
-    <div>
-        {windowWidth > 768 ? <Desktop /> : <Mobile />}
-    </div>
-  )
+    const { width } = useWindowSize();
+    return (
+        <div>
+            {width > 768 ? <Desktop /> : <Mobile />}
+        </div>
+    )
 }
 
 export default NavBar
